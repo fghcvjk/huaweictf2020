@@ -1,0 +1,2 @@
+Have you ever try to run Lua on HarmoneyOS?
+Run /bin/flag_app to get your flag

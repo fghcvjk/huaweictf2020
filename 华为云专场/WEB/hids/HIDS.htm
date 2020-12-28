@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIDS</title>
+       <script src="HIDS_files/jquery.js"></script>
+  <script src="HIDS_files/popper.js"></script>
+ <script src="HIDS_files/bootstrap.js"></script>
+ <link rel="stylesheet" href="HIDS_files/bootstrap.css">
+    <style>
+        /*web background*/
+        .container{
+            display:table;
+            height:100%;
+            margin-top: 100px;
+        }
+
+        .row{
+            display: table-cell;
+            vertical-align: middle;
+        }
+        /* centered columns styles */
+        .row-centered {
+            text-align:center;
+        }
+        .col-centered {
+            display:inline-block;
+            float:none;
+            text-align:left;
+            margin-right:-4px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Host-based Intrusion Detection System</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+        </nav>
+    </div>
+    <div class="container">
+        
+        <div class="row row-centered">
+            <h4>We will kill malicious processes every minute.</h4>
+            <div class="well col-md-6 col-centered">
+                <form role="form">
+                    <div class="form-label-group">
+                        <label for="exampleFormControlTextarea1">Cmd:</label>
+                        <input type="text" class="form-control" id="cmd" name="cmd" placeholder="Please input your cmd">
+                    </div>
+                    <div class="form-label-group">
+                        <label for="exampleFormControlTextarea1">Result:</label>
+                        <textarea class="form-control" id="result" rows="5"></textarea>
+                    </div>
+                    <br>
+                    <button class="btn btn-success btn-block" id="run">Run</button>
+                </form>
+            </div>
+            <div class="footer navbar-fixed-bottom">
+                Copyright © 2020 — By zzm
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#run").click(function(){
+            
+            var cmd = $("#cmd").val();
+            $.post("/run",{cmd: cmd},function(result){
+                $("#result").val(result);
+            });
+            return false;
+        })
+    </script>
+
+
+</body></html>

@@ -1,0 +1,43 @@
+root@ubuntu:~# nc 124.71.41.121 10001
+[+] sha256(L0zUMTuz+?).binary.endswith('00000000000000000000')
+[-] ?=atcB
+[+] passed
+
+We design a pretty easy contract game. Enjoy it!
+1. Create a game account
+2. Deploy a game contract
+3. Request for flag
+Game environment: Ropsten testnet
+
+Option 1, get an account which will be used to deploy the contract;
+Before option 2, please transfer some eth to this account (for gas);
+Option 2, the robot will use the account to deploy the contract for the problem;
+Option 3, use this option to obtain the flag after emit SendFlag(msg.sender) event.
+You can finish this challenge in a lot of connections.
+
+[-]input your choice: 1
+[+]Your game account:0x909E914B4dde5De6F9479b36f9659a833b38c9dc
+[+]token: 5Q0WO2zcp1UW7Pu1Xpdhoko0y8U1bZoGpv4Ywd1DkuaHWzi4MZU8oPZNVkpCowQfPjFYRLxwd5O4TMsfPd/aKxkAFQM+WcAgBTXoJy+5zDzzhzeH3IgEKViQ7yctsbK/dIHv0opC0aKh/yEL4IRugfSK+tWQdqbwNqQGz5NKNWE=
+[+]Deploy will cost 889142 gas
+[+]Make sure that you have enough ether to deploy!!!!!!(at least > 1 ether)
+
+[-]input your choice: 2
+[-]input your token: xa
+Traceback (most recent call last):
+  File "/root/ethbot/ethbot.py", line 120, in <module>
+    data = validate_then_decrypt(token, AES_KEY, HMAC_KEY)
+  File "/root/ethbot/util.py", line 24, in validate_then_decrypt
+    s = b64decode(token)
+  File "/usr/lib/python3.6/base64.py", line 87, in b64decode
+    return binascii.a2b_base64(s)
+binascii.Error: Incorrect padding
+
+
+[-]input your choice: 3
+[-]input your new token: MTIzMTIz
+Traceback (most recent call last):
+  File "/root/ethbot/ethbot.py", line 149, in <module>
+    data = validate_then_decrypt(new_token, AES_KEY, HMAC_KEY)
+  File "/root/ethbot/util.py", line 26, in validate_then_decrypt
+    assert sig == hmac.new(hmac_key, msg, hashlib.sha256).digest()
+AssertionError

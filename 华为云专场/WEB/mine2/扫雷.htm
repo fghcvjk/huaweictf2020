@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>扫雷</title>
+  <style>
+    #bar {
+      text-align: center;
+      margin-bottom:20px;
+    }
+
+    .bar {
+      height: 25px;
+      width: 150px;
+      line-height: 25px;
+      display: inline-block;
+      border: solid 1px #000;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    #grid {
+      margin: auto;
+    }
+
+    .blocks {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      display: block;
+      text-align: center;
+      border: solid 1px #000;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .blocks:hover {
+      background: #0af;
+    }
+  </style>
+</head>
+
+<body ondragstart="return false" oncontextmenu="self.event.returnValue=false">
+
+  <div id="bar">
+    <span class="bar">剩余雷数：<label id="count">0</label></span>
+    <span class="bar">计时：<label id="time">0</label>s</span>
+  </div>
+  <table id="grid"><tbody><tr><td><span class="blocks" onmousedown="block_click(0,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(0,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(1,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(1,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(2,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(2,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(3,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(3,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(4,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(4,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(5,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(5,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(6,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(6,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(7,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(7,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(8,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(8,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(9,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(9,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(10,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(10,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(11,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(11,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(12,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(12,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(13,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(13,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(14,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(14,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(15,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(15,16,event)"></span></td></tr><tr></tr><tr><td><span class="blocks" onmousedown="block_click(16,0,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,1,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,2,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,3,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,4,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,5,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,6,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,7,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,8,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,9,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,10,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,11,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,12,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,13,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,14,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,15,event)"></span></td><td><span class="blocks" onmousedown="block_click(16,16,event)"></span></td></tr><tr></tr></tbody></table>
+
+  <script>
+    var row = 17;
+    var col = 17;
+    var maxCount = 100;
+    var isFirstOpen = true;
+    var grid = init_grid();
+    var count = document.getElementById('count');
+    var time = document.getElementById('time');
+
+    function init_grid() {
+
+      let gridHtml = '';
+      for (let i = 0; i < row; i++) {
+        gridHtml += '<tr>'
+        for (let j = 0; j < col; j++) {
+          gridHtml +=
+            '<td><span class="blocks" onmousedown="block_click(' + i + ',' + j + ',event)"></span></td>';
+        }
+        gridHtml += '<tr>'
+      }
+
+      document.getElementById('grid').innerHTML = gridHtml;
+
+      let blocks = document.getElementsByClassName('blocks');
+      let grid = new Array();
+      for (let i = 0; i < blocks.length; i++) {
+        if (i % col === 0) {
+          grid.push(new Array());
+        }
+        blocks[i].count = 0;
+        grid[parseInt(i / col)].push(blocks[i]);
+      }
+      return grid;
+    }
+
+    function block_click(_i, _j, e) {
+
+      if (grid[_i][_j].isOpen) {
+        return;
+      }
+
+      if (e.button === 0) {
+
+        if (isFirstOpen) {
+
+          isFirstOpen = false;
+          let count = 0; 
+
+          while (count < maxCount) {
+
+            let ri = Math.floor(Math.random() * row);
+            let rj = Math.floor(Math.random() * col);
+
+            if (!(ri === _i && rj === _j) && !grid[ri][rj].isMine) {
+              grid[ri][rj].isMine = true; 
+              count++; 
+
+             
+              for (let i = ri - 1; i < ri + 2; i++) {
+                for (let j = rj - 1; j < rj + 2; j++) {
+                  if (i > -1 && j > -1 && i < row && j < col) {
+                    grid[i][j].count++;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        
+        block_open(_i, _j);
+
+        
+        function block_open(_i, _j) {
+
+          let block = grid[_i][_j];
+          op(block);
+
+          
+          function op(block) {
+            block.isOpen = true; 
+            block.style.background = '#ccc'; 
+            block.style.cursor = 'default';
+          }
+
+          if (block.isMine) {
+            block.innerHTML = 'X';
+            for (let i = 0; i < row; i++) {
+              for (let j = 0; j < col; j++) {
+                block = grid[i][j];
+                if (!block.isOpen && block.isMine) {
+                  op(block);
+                  block.innerHTML = 'X'; 
+                }
+              }
+            }
+            alert("败者食尘");
+			location.href = './over';
+          } else if (block.count === 0) {
+            for (let i = _i - 1; i < _i + 2; i++) {
+              for (let j = _j - 1; j < _j + 2; j++) {
+                if (i > -1 && j > -1 && i < row && j < col && !grid[i][j].isOpen && !grid[i][j].ismine) {
+                  block_open(i, j);
+                }
+              }
+            }
+          } else {
+             block.innerHTML = block.count; 
+          }
+
+        }
+      }
+      
+      else if (e.button === 2) {
+
+        let block = grid[_i][_j];
+        if (block.innerHTML !== '▲') {
+          block.innerHTML = '▲';
+        } else {
+          block.innerHTML = '';
+        }
+      }
+
+      
+      for (let i = 0; i < row; i++) {
+        for (let j = 0; j < col; j++) {
+          if (!grid[i][j].isMine && !grid[i][j].isOpen) {
+            return;
+          }
+        }
+      }
+      var name = prompt("胜者请留名");
+	  location.href = './success?msg='+name;
+    }
+  </script>
+
+
+</body></html>

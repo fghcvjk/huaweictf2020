@@ -1,0 +1,1 @@
+Note: you need to migrate the project to aarch64 first. After that you should optimize it to run faster.

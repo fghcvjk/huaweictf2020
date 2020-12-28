@@ -1,0 +1,5 @@
+Schrodingerbox
+
+nc 121.37.196.163 52520
+下载链接为无flag的在线环境镜像，可自行下载导入，格式为vmdk。
+用户名root，密码huawei123！

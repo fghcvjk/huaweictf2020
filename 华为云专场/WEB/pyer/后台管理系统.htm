@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理系统</title>
+    <!--自定义函数-->
+    <script>
+        function unopen() {
+            alert('功能暂时未开放');
+        }
+    </script>
+
+    <!-- Bootstrap -->
+    <link href="%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F_files/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.js"></script>
+    <script type="text/javascript" src="jquery-1.7.2.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://124.71.207.51:32084/">主页</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://124.71.207.51:32084/login">登陆</a></li>
+            <li><a href="#" onclick="unopen()">注册</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+<div style="padding: 100px 100px 10px;">
+    <form class="bs-example bs-example-form" role="form" action="/login" method="post">
+        <div class="input-group">
+            <span class="input-group-addon">用户名</span>
+            <input type="text" name="username" id="inputID" class="form-control" title="" required="required">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">密码</span>
+            <input type="password" name="password" id="inputID" class="form-control" value="" title="" required="required">
+        </div>
+        <br>
+            <input type="submit" name="submit" id="inputID" class="form-control" value="登陆" title="" required="required">
+    </form>
+</div>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F_files/jquery.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F_files/bootstrap.js"></script>
+
+</body></html>

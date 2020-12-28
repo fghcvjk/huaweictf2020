@@ -1,0 +1,3 @@
+Just do it. To get flag check app, you need to connect to server, the flag path is under /etc/flag2.lua
+
+本题需要基于 luaplayground01的环境，继续获得flag2.lua

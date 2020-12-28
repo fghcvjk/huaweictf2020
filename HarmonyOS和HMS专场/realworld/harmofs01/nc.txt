@@ -1,0 +1,94 @@
+
+root@ubuntu:~# nc 124.70.199.122 32660
+
+(process:28): GLib-WARNING **: /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmem.c:483: custom memory allocation vtable not supported
+
+******************Welcome******************
+
+Processor   : unknown
+Run Mode    : UP
+GIC Rev     : unknown
+build time  : Nov 22 2020 23:25:19
+Kernel      : Huawei LiteOS 2.0.0.35/debug
+
+*******************************************
+
+main core booting up...
+[ERR][HDF:E/hcs_blob_if]CheckHcsBlobLength: the blobLength: 8964, byteAlign: 1, totalSize: -8944
+cpu 0 entering scheduler
+[ERR]No console dev used.
+[ERR]No console dev used.
+Spi Nor ID:0xFFFFFFC2 0x20 0x19 0xFFFFFFC2 0x20 0x18 0xFFFFFFC2 0x20
+Spi Nor Flash Info:
+Name:"MX25L(256/257)XX" Size:32MB Block:64KB
+###tcpip_init done (lwIP version: 2.1.2)#####
+Mount procfs finished.
+
+******** usb_init in **********
+usb v3.05 2019-11-20 10:40
+xhci_init (xhci0): Controller does not support 4K page size.
+xhci_pci_attach (xhci0): Could not initialize softc
+xhci_pci_attach (xhci0): XHCI halt/start/probe failed err=0
+xhci_halt_controller (xhci0): Controller halt timeout.
+******** usb_init ok**********
+
+Ethernet start.hisi_eth: User did not set phy mode, use default=rmii
+hisi_eth: User did not set phy addr, auto scan...
+No OTP data, festa PHY use default ATE parameters!
+festa PHY wait autotrim done timeout!
+Detected phy addr 31, phyid: 0x240024
+Link is Up - 10Mbps/Half
+[ERR][HDF:E/sample_driver]Sample driver Init success
+[ERR][HDF:E/HDF_LOG_TAG]Hdf get hdfwifi device entry failed!
+[ERR][HDF:E/driver_loader]Load service failed, deviceEntry is null
+[ERR][HDF:E/devhost_service_clnt]Install hdfwifi driver failed, ret = -203
+[Init] ****/****/****/****/OpenHarmony/****/****/3/OpenHarmony 1.0/debug
+[Init] DoMkDir, failed for /storage/data/log, err 2.
+[Init] DoChmod, failed for 0755 /storage/data/log, err 2.
+[Init] DoChown, failed for 4 4 /storage/data/log, err 2.
+[Init] DoMkDir, failed for /storage/data/softbus, err 2.
+[Init] DoChmod, failed for 0700 /storage/data/softbus, err 2.
+[Init] DoChown, failed for 7 7 /storage/data/softbus, err 2.
+[ERR]Failed to find block driver /dev/mmcblk0
+[Init] DoMount, failed for vfat /dev/mmcblk0 /sdcard rw,umask=000, err -1.
+[ERR]Failed to find block driver /dev/mmcblk1
+[Init] DoMount, failed for vfat /dev/mmcblk1 /sdcard rw,umask=000, err -1.
+[Init] DoChmod, failed for 0666 /etc/flag, err 13.
+[Init] start service apphilogcat succeed, pid 3.
+open err fp1=0
+[Init] SigHandler, SIGCHLD received.
+[Init] start service foundation succeed, pid 4.
+[UnRegisteDeathCallback : 960]Wrong cbId:4294967295.
+[UnRegisteDeathCallback : 960]Wrong cbId:4294967295.
+[UnRegisteDeathCallback : 960]Wrong cbId:4294967295.
+[DISCOVERY] ReadFile get deviceid open file fail
+[DISCOVERY] WriteDeviceId open file fail
+[DISCOVERY] write device fail
+[DISCOVERY] Get device fail
+[DISCOVERY] InitCommonManager fail
+[DISCOVERY] InitService InitCommonManager fail
+[DISCOVERY] PublishService InitService fail
+[DISCOVERY] PublishCallback publishId=1, result=255
+[Init] start service bundle_daemon succeed, pid 5.
+[UnRegisteDeathCallback : 960]Wrong cbId:4294967295.
+[UnRegisteDeathCallback : 960]Wrong cbId:4294967295.
+[Init] start service media_server succeed, pid 6.
+iniparser: cannot open /storage/data/cameradev.ini
+open sys: Permission denied
+[CameraVbInit]-168: HI_MPI_SYS_Exit failed 0xa0028010!
+system init failed with -1!
+Media server initialize failed.
+[Init] SigHandler, SIGCHLD received.
+[Init] start service appspawn succeed, pid 7.
+[UnRegisteDeathCallback : 960]Wrong cbId:4294967295.
+[UnRegisteDeathCallback : 960]Wrong cbId:4294967295.
+[Init] start service honormap succeed, pid 8.
+Loading.[Init] DoChown, failed for 0 99 /dev/hdfwifi, err 2.
+[Init] main, entering wait.
+.........
+Gift: 0x212eceb8
+Gift: 0x3a672d8
+Sh > ls
+ls
+Not supported
+Sh >
